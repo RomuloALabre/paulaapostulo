@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Paula Apóstulo | Estética Facial e Íntima em Campo Grande, RJ</title>
+    
+    <meta name="description" content="Especialista em Estética Facial e Íntima em Campo Grande, RJ. Ninfoplastia sem cortes, Botox e rejuvenescimento. Agende com a Dra. Paula Apóstulo.">
+    
+    <style>
+        :root {
+            /* Paleta de Cores */
+            --primary-color: #E8D4D7;  /* Rosa Empoeirado */
+            --primary-dark: #dcbabf;   /* Rosa um pouco mais escuro para degradês */
+            --secondary-color: #58374F; /* Ameixa Profundo */
+            --accent-color: #C5B358;    /* Dourado */
+            --bg-light: #FFF9FA;       /* Branco Rosado (quase imperceptível) */
+            --bg-warm: #FDF2F4;        /* Rosa muito pálido para fundos */
+            --text-dark: #333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-top: 90px;
+            background-color: var(--bg-light);
+        }
+
+        /* --- HEADER --- */
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5%;
+            background-color: rgba(232, 212, 215, 0.95); 
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(88, 55, 79, 0.1);
+            position: fixed;
+            top: 0; width: 100%; z-index: 1000;
+            transition: transform 0.3s ease-in-out;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .header-hidden { transform: translateY(-100%); }
+
+        .nav-logo { flex: 1; }
+
+        .nav-logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 12px;
+        }
+
+        .nav-logo-img-circle {
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-color);
+        }
+
+        .nav-logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            color: var(--secondary-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+            line-height: 1.2;
+        }
+
+        .brand-tagline {
+            color: var(--secondary-color);
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .nav-center { flex: 2; display: flex; justify-content: center; }
+        .nav-links { list-style: none; display: flex; gap: 25px; }
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: lowercase;
+            transition: color 0.3s;
+        }
+        .nav-links li a:hover { color: var(--accent-color); }
+        .nav-links li a::before { content: "✦ "; color: var(--accent-color); }
+
+        .nav-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 15px; }
+        .cta-header-gold {
+            background: linear-gradient(45deg, var(--accent-color), #d4c062);
+            color: white !important;
+            padding: 8px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+            box-shadow: 0 4px 10px rgba(197, 179, 88, 0.3);
+            transition: transform 0.2s;
+        }
+        .cta-header-gold:hover { transform: translateY(-2px); }
+        .instagram-icon-top { height: 28px; width: 28px; }
+
+        /* HERO */
+        .hero {
+            height: 85vh;
+            background: linear-gradient(rgba(88, 55, 79, 0.65), rgba(88, 55, 79, 0.5)), url('dra_paula.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 5%;
+        }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 5px; letter-spacing: 1px; }
+        .hero-content h1 { font-size: 3.5rem; margin-bottom: 10px; font-weight: bold; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .hero-content .hero-subtitle { font-size: 1.4rem; color: var(--primary-color); margin-bottom: 30px; font-weight: 300; }
+        .hero-icon { max-width: 810px; border: 1px solid rgba(255,255,255,0.5); border-radius: 10px; padding: 5px; }
+
+        /* SOBRE */
+        .about-section {
+            padding: 100px 5%;
+            background: linear-gradient(to bottom, #ffffff 0%, var(--bg-warm) 100%);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .about-image-container { position: relative; display: flex; justify-content: center; }
+
+        .about-image {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 8px;
+            z-index: 2;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(88, 55, 79, 0.15);
+        }
+
+        .about-image-container::before {
+            content: '';
+            position: absolute;
+            width: 100%; height: 100%; max-width: 450px;
+            border: 1px solid var(--accent-color);
+            top: 25px; left: 25px;
+            z-index: 1;
+            border-radius: 8px;
+        }
+
+        .about-text h2 {
+            font-size: 2.1rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .about-paragraph {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .quote-box {
+            font-style: italic;
+            border-left: 3px solid var(--accent-color);
+            padding: 15px 0 15px 25px;
+            margin: 30px 0;
+            color: var(--secondary-color);
+            font-size: 1.25rem;
+            background: linear-gradient(to right, rgba(232, 212, 215, 0.2), transparent);
+        }
+
+        .credentials-box {
+            background: var(--secondary-color);
+            color: white;
+            padding: 35px;
+            margin-top: 40px;
+            box-shadow: 15px 15px 0 var(--primary-color);
+            border-radius: 0 20px 0 20px;
+        }
+
+        .credentials-box ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .credentials-box li {
+            font-size: 0.95rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+        .credentials-box li::before { content: "✧ "; color: var(--accent-color); margin-right: 8px; }
+
+        /* SERVIÇOS */
+        .services-section {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 90px 5%;
+            text-align: center;
+            background-image: radial-gradient(circle at 10% 20%, rgba(197, 179, 88, 0.05) 0%, transparent 20%);
+        }
+
+        .services-main-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            font-weight: 300;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: rgba(255, 255, 255, 0.03);
+            padding: 45px 35px;
+            border-radius: 15px;
+            border: 1px solid rgba(232, 212, 215, 0.1);
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.06);
+            border-color: var(--accent-color);
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(197, 179, 88, 0.3);
+            padding-bottom: 15px;
+        }
+
+        .intima-highlight {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .intima-highlight h4 { margin-bottom: 10px; font-weight: bold; }
+
+        .treatment-list { list-style: none; text-align: left; }
+        .treatment-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 1rem;
+        }
+        .treatment-list li::before { content: "✦ "; color: var(--accent-color); }
+
+        .btn-whatsapp-card {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--accent-color), #d4c062);
+            color: white;
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+        .btn-whatsapp-card:hover { transform: scale(1.05); }
+
+        /* DEPOIMENTOS */
+        .testimonials-section {
+            padding: 90px 5%;
+            background: linear-gradient(180deg, #FFFFFF 0%, var(--bg-warm) 100%);
+            text-align: center;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 50px auto 0;
+        }
+
+        .testimonial-card {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(232, 212, 215, 0.4); 
+            position: relative;
+            border: 1px solid rgba(197, 179, 88, 0.2);
+            transition: transform 0.3s;
+        }
+        
+        .testimonial-card:hover { transform: translateY(-5px); }
+
+        .testimonial-card::after {
+            content: "“";
+            position: absolute;
+            top: 0px;
+            left: 20px;
+            font-size: 6rem;
+            color: var(--primary-color);
+            font-family: serif;
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            color: var(--secondary-color);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            border-top: 1px solid var(--primary-color);
+            display: inline-block;
+            padding-top: 10px;
+        }
+
+        /* LOCALIZAÇÃO E CONTATO */
+        .contact-section {
+            padding: 90px 5%;
+            background-color: var(--bg-warm);
+            text-align: center;
+            border-top: 1px solid white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 40px auto 0;
+            text-align: left;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            background: #eee;
+            border: 8px solid white;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .contact-info-box h3 {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-details { list-style: none; margin-bottom: 30px; }
+        .contact-details li { margin-bottom: 15px; font-size: 1.1rem; color: #555; display: flex; align-items: flex-start; }
+        .contact-details li strong { color: var(--secondary-color); margin-right: 8px; width: 100px; display: inline-block; }
+
+        .footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 60px 5% 30px;
+            text-align: center;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .footer-logo { height: 80px; margin-bottom: 20px; }
+
+        /* --- MELHORIAS SOMENTE PARA CELULAR (ÚNICA PARTE ADICIONADA) --- */
+        @media (max-width: 768px) {
+            .nav-center { display: none; } /* Oculta menu central no mobile para não amontoar */
+            .nav-logo-text { display: none; } /* Oculta texto da logo no mobile para dar espaço ao botão */
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero-content .hero-subtitle { font-size: 1.1rem; }
+            .hero-icon { width: 100%; height: auto; }
+            .credentials-box ul { grid-template-columns: 1fr; }
+            .credentials-box { box-shadow: 10px 10px 0 var(--primary-color); }
+            .cta-header-gold { padding: 6px 12px; font-size: 11px; }
+        }
+
+        @media (min-width: 992px) {
+            .about-grid { grid-template-columns: 1fr 1.2fr; gap: 80px; }
+            .services-container { grid-template-columns: 1fr 1fr; }
+            .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
+            .contact-grid { grid-template-columns: 1.2fr 1fr; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="main-nav" id="navbar">
+        <div class="nav-logo">
+            <a href="#" class="nav-logo-container">
+                <img src="foto-dra-paula-sobre.jpg" alt="Dra Paula Apóstulo" class="nav-logo-img-circle">
+                <div class="nav-logo-text">
+                    <span class="brand-name">Dra. Paula Apóstulo</span>
+                    <span class="brand-tagline">Estética Íntima e Facial</span>
+                </div>
+            </a>
+        </div>
+        <div class="nav-center">
+            <ul class="nav-links">
+                <li><a href="#sobre">sobre</a></li>
+                <li><a href="#servicos">serviços</a></li>
+                <li><a href="#depoimentos">depoimentos</a></li>
+                <li><a href="#contato">contato</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <a href="https://wa.me/5521999828146" class="cta-header-gold">Agendar Consulta</a>
+            <a href="https://instagram.com/paula.apostulo" target="_blank"><img src="logo-instagram.jpg" class="instagram-icon-top"></a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <p>Bem-vinda(o)!</p>
+            <h1>Dra Paula Apóstulo</h1>
+            <p class="hero-subtitle">Estética Facial e Íntima em Campo Grande, RJ</p>
+            <img src="icone-hero.jpg" class="hero-icon">
+        </div>
+    </header>
+
+    <main>
+        <section id="sobre" class="about-section">
+            <div class="about-grid">
+                <div class="about-image-container">
+                    <img src="foto-dra-paula-sobre.jpg" alt="Dra Paula Apóstulo" class="about-image">
+                </div>
+                <div class="about-text">
+                    <h2>Sobre a Dra. Paula Apóstulo</h2>
+                    <p class="about-paragraph"><strong>De Cuidadora a Especialista em Autoestima Feminina.</strong></p>
+                    <div class="quote-box">
+                        "Minha jornada é a prova de que, da exaustão, pode nascer um novo propósito: devolver o prazer e a liberdade às mulheres."
+                    </div>
+                    <p class="about-paragraph">Paulista de nascimento e carioca de coração há 6 anos, dediquei 18 anos da minha vida à linha de frente da enfermagem. Foram anos de plantões intensos em UTI, onde a responsabilidade era o meu guia diário.</p>
+                    <p class="about-paragraph">A rotina de cuidado extremo me levou ao burnout, e foi nesse momento que percebi que cuidava de todos, menos de mim mesma. A Enfermagem Estética foi o que reacendeu minha paixão.</p>
+                    <p class="about-paragraph">Hoje, minha verdadeira vocação é a <strong>Estética Íntima Feminina</strong>. Ajudo mulheres a recuperarem a liberdade, o prazer e a reconciliação com o próprio corpo.</p>
+                    <div class="credentials-box">
+                        <ul>
+                            <li>Estética Íntima</li>
+                            <li>Saúde da Mulher</li>
+                            <li>Sexualidade Humana</li>
+                            <li>Estética Facial</li>
+                            <li>Atendimento Premium</li>
+                            <li>Campo Grande, RJ</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos" class="services-section">
+            <h2 class="services-main-title">Serviços e Tratamentos</h2>
+            <div class="services-container">
+                <div class="service-card">
+                    <h3 class="card-title">Estética Íntima</h3>
+                    <ul class="treatment-list">
+                        <li>Ninfoplastia Sem Cortes</li>
+                        <li>Rejuvenescimento Íntimo</li>
+                        <li>Estreitamento de Canal</li>
+                        <li>Bioestimulador / Radiofrequência</li>
+                        <li>Preenchimento de Glúteo</li>
+                        <li>Tratamento de Flacidez</li>
+                    </ul>
+                    <div class="intima-highlight">
+                        <h4>Você está INSATISFEITA com a sua Região ÍNTIMA?</h4>
+                        <p>Descubra como os tratamentos podem transformar sua confiança.</p>
+                        <a href="https://wa.me/5521999828146" class="btn-whatsapp-card">Fale Conosco e Agende!</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <h3 class="card-title">Estética Facial</h3>
+                    <ul class="treatment-list">
+                        <li>Toxina Botulínica (Botox)</li>
+                        <li>Fios de PDO</li>
+                        <li>Rejuvenescimento Global</li>
+                        <li>Preenchimento Labial</li>
+                        <li>Tratamento de Rugas e Linhas</li>
+                        <li>Aplicação de Enzimas</li>
+                    </ul>
+                    <a href="https://wa.me/5521999828146" class="btn-whatsapp-card" style="background:transparent; border: 2px solid var(--accent-color);">Consultar Procedimentos</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="depoimentos" class="testimonials-section">
+            <h2 class="services-main-title" style="color: var(--secondary-color);">Depoimentos</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"A Dra. Paula é uma profissional incrível. Fiz o rejuvenescimento íntimo e minha autoestima mudou completamente. Recomendo de olhos fechados!"</p>
+                    <span class="testimonial-author">Patrícia S.</span>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"O atendimento é impecável. Ela explica tudo com muita calma e nos deixa super seguras. O resultado do botox ficou super natural!"</p>
+                    <span class="testimonial-author">Renata M.</span>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Espaço maravilhoso e atendimento nota mil. A Dra. Paula nos faz sentir em casa e os resultados são surpreendentes."</p>
+                    <span class="testimonial-author">Juliana L.</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="contact-section">
+            <h2 class="services-main-title" style="color: var(--secondary-color);">Onde Estamos</h2>
+            <div class="contact-grid">
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.801642844893!2d-43.56269432468864!3d-22.920689979244983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9be3d5d2b5585f%3A0x69174c5a62ff6f5f!2sR.%20Prof.%20Castilho%2C%20431%20-%20Campo%20Grande%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2023045-060!5e0!3m2!1spt-BR!2sbr!4v1710000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="contact-info-box">
+                    <h3>Atendimento Premium</h3>
+                    <ul class="contact-details">
+                        <li><strong>Endereço:</strong> Rua Prof. Castilho, 431 <br>Campo Grande, Rio de Janeiro - RJ</li>
+                        <li><strong>WhatsApp:</strong> (21) 99982-8146</li>
+                        <li><strong>Horários:</strong> Seg a Sex: 10:00 às 19:00 <br>Sábados: 09:00 às 13:00</li>
+                    </ul>
+                    <a href="https://wa.me/5521999828146" class="btn-whatsapp-card">Agendar Consulta via WhatsApp</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <img src="logo-paula.jpg" class="footer-logo" alt="Logo Dra Paula Apóstulo">
+        <p>© 2024 Dra. Paula Apóstulo. Todos os direitos reservados.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; color: var(--primary-color);">Estética Íntima e Facial em Campo Grande, RJ</p>
+    </footer>
+
+    <script>
+        let lastScrollTop = 0;
+        const navbar = document.getElementById("navbar");
+
+        window.addEventListener("scroll", function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                navbar.classList.add("header-hidden");
+            } else {
+                navbar.classList.remove("header-hidden");
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
+        }, false);
+    </script>
+</body>
+</html>
